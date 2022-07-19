@@ -1,0 +1,45 @@
+:root {
+  --card-color: rgb(205, 225, 243);
+}
+
+.card-container {
+  margin: 2rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--card-color, rgb(205, 225, 243));
+  padding: 1rem 1rem 0 1rem;
+  width: 250px;
+  height: 300px;
+  border: none;
+  outline: 2px solid rgb(118, 118, 118);
+  border-radius: 0.2rem;
+  box-shadow: 0px 0px 8px 2px rgb(118, 118, 118);
+}
+
+.img {
+  margin: 0 auto;
+  width: 200px;
+  height: 300px;
+  overflow: hidden;
+  cursor: pointer;
+  outline: 2px solid black;
+}
+
+img {
+  width: 200px;
+}
+
+.card > p {
+  margin: 0.5rem auto;
+  text-align: center;
+  font-size: 1.3rem;
+}
