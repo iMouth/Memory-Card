@@ -1,3 +1,8 @@
+@font-face {
+  font-family: SurvivorText;
+  src: url(../assets/Fluffy\ Slacks\ BTN\ Regular.ttf);
+}
+
 :root {
   --card-color: rgb(205, 225, 243);
 }
@@ -16,7 +21,7 @@
   flex-direction: column;
   justify-content: space-around;
   background-color: var(--card-color, rgb(205, 225, 243));
-  padding: 1rem 1rem 0 1rem;
+  padding: 1.5rem 1rem 0 1rem;
   width: 250px;
   height: 300px;
   border: none;
@@ -39,7 +44,9 @@ img {
 }
 
 .card > p {
-  margin: 0.5rem auto;
+  margin: 0 auto;
+  padding: 0.5rem;
   text-align: center;
   font-size: 1.3rem;
+  font-family: SurvivorText;
 }

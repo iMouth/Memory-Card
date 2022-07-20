@@ -1,29 +1,14 @@
 import React from "react";
 import "../styles/Cards.css";
 
-const Cards = () => {
-  function importPictures(r) {
-    let images = {};
-    let size = r.keys().length;
-    r.keys().map((item, index) => {
-      images[index] = {
-        name: item.replace("./", "").split(".")[0],
-        src: r(item),
-      };
-    });
-
-    return [images, size];
-  }
-
-  const [images, size] = importPictures(require.context("../assets/cards", false, /\.(png|jpe?g|svg|webp)$/));
-
-  const cards = Object.keys(images).map((index) => {
+const Cards = ({ click, images }) => {
+  const cards = images.map(({ id, name, src }) => {
     return (
-      <button className="card">
+      <button onClick={(e) => click(e, id)} className="card" key={id}>
         <div className="img">
-          <img src={images[index].src} alt={"Picture of: " + images[index].name} />
+          <img src={src} alt={"Picture of: " + name} />
         </div>
-        <p>{images[index].name}</p>
+        <p>{name}</p>
       </button>
     );
   });

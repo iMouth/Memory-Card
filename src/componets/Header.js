@@ -1,13 +1,13 @@
 import React from "react";
 import "../styles/Header.css";
 
-const Header = () => {
+const Header = ({ score, highScore }) => {
   return (
     <div className="Header">
       <h1>Survivor Winners Memory Game </h1>
       <div className="scores">
-        <p>Score: 3</p>
-        <p>High Score: 40</p>
+        <p>Score: {score}</p>
+        <p>High Score: {highScore}</p>
       </div>
     </div>
   );
