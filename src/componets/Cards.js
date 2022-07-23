@@ -13,7 +13,7 @@ const Cards = ({ click, images }) => {
     );
   });
 
-  return <div className="card-container">{cards}</div>;
+  return <div id="Cards">{cards}</div>;
 };
 
 export default Cards;

@@ -10,21 +10,21 @@
 body {
   margin: 0;
 }
-.App {
+#App {
   font-family: Survivor;
 }
 
-.Header {
+#Header {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.Header h1 {
+#Header h1 {
   background-color: var(--bg-color, rgba(105, 162, 121, 0.85));
   padding: 0.7rem;
-  margin: 2rem;
+  margin: 2rem 1rem;
   text-align: center;
   font-size: clamp(1.5rem, 4vw, 4rem);
 }
