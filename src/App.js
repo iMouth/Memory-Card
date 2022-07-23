@@ -43,7 +43,6 @@ const App = ({ images, size }) => {
   };
 
   const success = (key) => {
-    console.log("GOT TO WIN");
     setScore(() => score + 1);
     setClickedCards(() => [...clickedCards, key]);
     setCardImages(() => _.shuffle(cardImages));
@@ -51,17 +50,12 @@ const App = ({ images, size }) => {
       setNumCards(() => numCards + multipler * 4);
       setMultipler(() => multipler + 1);
     }
-    if (score + 1 === size) {
-      setWin(() => true);
-    }
+    if (score + 1 === size) setWin(() => true);
   };
 
   const imageClick = (e, key) => {
-    if (clickedCards.includes(key)) {
-      gameReset();
-    } else {
-      success(key);
-    }
+    if (clickedCards.includes(key)) gameReset();
+    else success(key);
   };
 
   return (
