@@ -7,7 +7,7 @@
   --card-color: rgb(205, 225, 243);
 }
 
-.card-container {
+#Cards {
   margin: 2rem;
   padding: 1rem;
   flex-wrap: wrap;
@@ -28,6 +28,11 @@
   outline: 2px solid rgb(118, 118, 118);
   border-radius: 0.2rem;
   box-shadow: 0px 0px 8px 2px rgb(118, 118, 118);
+  transition: transform 150ms ease-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }
 
 .img {

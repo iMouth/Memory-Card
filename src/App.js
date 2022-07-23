@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Header from "./componets/Header";
 import _ from "lodash";
 import Cards from "./componets/Cards";
+import Win from "./componets/Win";
 
 const App = ({ images, size }) => {
   const [score, setScore] = useState(0);
@@ -12,6 +13,7 @@ const App = ({ images, size }) => {
   const [multipler, setMultipler] = useState(1);
   const [cards, setCards] = useState(_.shuffle(Array.from(Array(size).keys())));
   const [clickedCards, setClickedCards] = useState([]);
+  const [win, setWin] = useState(false);
 
   useEffect(() => {
     makeCards();
@@ -37,9 +39,11 @@ const App = ({ images, size }) => {
     setMultipler(() => 1);
     setCardImages(() => []);
     setNumCards(() => 4);
+    setWin(() => false);
   };
 
   const success = (key) => {
+    console.log("GOT TO WIN");
     setScore(() => score + 1);
     setClickedCards(() => [...clickedCards, key]);
     setCardImages(() => _.shuffle(cardImages));
@@ -48,7 +52,7 @@ const App = ({ images, size }) => {
       setMultipler(() => multipler + 1);
     }
     if (score + 1 === size) {
-      console.log("WIN");
+      setWin(() => true);
     }
   };
 
@@ -61,9 +65,9 @@ const App = ({ images, size }) => {
   };
 
   return (
-    <div className="App">
+    <div id="App">
       <Header score={score} highScore={highScore} />
-      <Cards click={imageClick} images={cardImages} />
+      {win ? <Win reset={gameReset} size={size} images={images} /> : <Cards click={imageClick} images={cardImages} />}
     </div>
   );
 };

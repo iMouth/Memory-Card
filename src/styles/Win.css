@@ -1,0 +1,33 @@
+#Win {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#Win > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  border-radius: 2rem;
+  padding: 2rem;
+}
+
+#Win h1 {
+  font-size: 5rem;
+  margin: 0;
+}
+#Win p {
+  font-size: 2rem;
+  font-family: SurvivorText;
+}
+
+#Win button {
+  width: 80%;
+  height: 50px;
+  font-family: SurvivorText;
+  font-size: 2rem;
+}
