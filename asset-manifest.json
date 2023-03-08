@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Memory-Card/static/css/main.89b91e99.css",
-    "main.js": "/Memory-Card/static/js/main.f52264bc.js",
+    "main.css": "/Memory-Card/static/css/main.147beba2.css",
+    "main.js": "/Memory-Card/static/js/main.cf667880.js",
     "static/media/Chris Daugherty.jpeg": "/Memory-Card/static/media/Chris Daugherty.06464bb2d7f3ffd95aa0.jpeg",
     "static/media/Parvati Shallow.jpeg": "/Memory-Card/static/media/Parvati Shallow.ddbb51b6482301404040.jpeg",
     "static/media/Bob Crowley.jpeg": "/Memory-Card/static/media/Bob Crowley.ed826d2e85f07d333fb8.jpeg",
@@ -10,6 +10,7 @@
     "static/media/Denise Stapley.jpg": "/Memory-Card/static/media/Denise Stapley.6e0660da7ce5e81692f3.jpg",
     "static/media/Earl Cole.jpeg": "/Memory-Card/static/media/Earl Cole.c9d40a71d7f842c65309.jpeg",
     "static/media/JT Thomas.jpeg": "/Memory-Card/static/media/JT Thomas.6584865e6d90d89e1030.jpeg",
+    "static/media/tayak-beach.jpg": "/Memory-Card/static/media/tayak-beach.2dc21576f95647bebc17.jpg",
     "static/media/Kim Spradlin.jpg": "/Memory-Card/static/media/Kim Spradlin.d498442b58fccf57480c.jpg",
     "static/media/Tom Westman.jpeg": "/Memory-Card/static/media/Tom Westman.c905e6014bccf4c92b3d.jpeg",
     "static/media/Chris Underwood.webp": "/Memory-Card/static/media/Chris Underwood.a92114643159545e3904.webp",
@@ -18,6 +19,7 @@
     "static/media/Sophie Clarke.webp": "/Memory-Card/static/media/Sophie Clarke.ae56c70da2a6128c74c8.webp",
     "static/media/John Cochran.jpeg": "/Memory-Card/static/media/John Cochran.a1621d55c62fc11f0e7d.jpeg",
     "static/media/Adam Klein.jpeg": "/Memory-Card/static/media/Adam Klein.33adb24abfe9f845d72a.jpeg",
+    "static/media/Mike Gabler.webp": "/Memory-Card/static/media/Mike Gabler.d32ea5ff550017eda1a6.webp",
     "static/media/Maryanne Oketch.webp": "/Memory-Card/static/media/Maryanne Oketch.decb41b3fcafc7f548ca.webp",
     "static/media/Richard Hatch.webp": "/Memory-Card/static/media/Richard Hatch.cad55038d52f3ce43efc.webp",
     "static/media/Erika Casupanan.webp": "/Memory-Card/static/media/Erika Casupanan.ca0e350429b79514ec33.webp",
@@ -46,11 +48,11 @@
     "static/media/Aras Baskauskas.jpeg": "/Memory-Card/static/media/Aras Baskauskas.376a8bb2c5da4de6a70c.jpeg",
     "static/media/Jenna Morasca.webp": "/Memory-Card/static/media/Jenna Morasca.41c68bae3a94bf48756e.webp",
     "index.html": "/Memory-Card/index.html",
-    "main.89b91e99.css.map": "/Memory-Card/static/css/main.89b91e99.css.map",
-    "main.f52264bc.js.map": "/Memory-Card/static/js/main.f52264bc.js.map"
+    "main.147beba2.css.map": "/Memory-Card/static/css/main.147beba2.css.map",
+    "main.cf667880.js.map": "/Memory-Card/static/js/main.cf667880.js.map"
   },
   "entrypoints": [
-    "static/css/main.89b91e99.css",
-    "static/js/main.f52264bc.js"
+    "static/css/main.147beba2.css",
+    "static/js/main.cf667880.js"
   ]
 }
