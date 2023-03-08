@@ -5,6 +5,10 @@ import "./index.css";
 import App from "./App";
 import { ImageIF } from "./../types";
 
+const getHighScore = () => {
+  return sessionStorage.getItem("highScore") ? JSON.parse(sessionStorage.getItem("highScore")!) : 0;
+};
+
 function importPictures(r: __WebpackModuleApi.RequireContext): [ImageIF[], number] {
   let images: ImageIF[] = [];
   let size = r.keys().length;
@@ -21,4 +25,4 @@ function importPictures(r: __WebpackModuleApi.RequireContext): [ImageIF[], numbe
 const [images, size] = importPictures(require.context("./assets/cards", false, /\.(png|jpe?g|svg|webp)$/));
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
-root.render(<App images={images} size={size} />);
+root.render(<App images={images} size={size} localHS={getHighScore()} />);

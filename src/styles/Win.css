@@ -14,6 +14,7 @@
   background-color: aliceblue;
   border-radius: 2rem;
   padding: 2rem;
+  border: 5px solid black;
 }
 
 #Win h1 {
@@ -30,4 +31,5 @@
   height: 50px;
   font-family: SurvivorText;
   font-size: 2rem;
+  cursor: pointer;
 }

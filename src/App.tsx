@@ -9,20 +9,17 @@ import { ImageIF } from "./../types";
 interface Props {
   images: ImageIF[];
   size: number;
+  localHS: number;
 }
 
-const getHighScore = () => {
-  return localStorage.getItem("highScore") ? JSON.parse(localStorage.getItem("highScore")!) : 0;
-};
-
-const App = ({ images, size }: Props) => {
+const App = ({ images, size, localHS }: Props) => {
+  const EXTRA_CARDS = 5;
+  const cards = _.shuffle(Array.from(Array(size).keys()));
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(getHighScore());
+  const [highScore, setHighScore] = useState(localHS);
   const [cardImages, setCardImages] = useState<ImageIF[]>([]);
-  const [numCards, setNumCards] = useState(4);
-  const [multipler, setMultipler] = useState(1);
-  const [cards, setCards] = useState(_.shuffle(Array.from(Array(size).keys())));
   const [clickedCards, setClickedCards] = useState<number[]>([]);
+  const [unclickedCards, setUnclickedCards] = useState<number[]>(cards);
   const [win, setWin] = useState(false);
 
   useEffect(() => {
@@ -31,37 +28,38 @@ const App = ({ images, size }: Props) => {
 
   const makeCards = () => {
     setCardImages(() => {
-      let ret = [...cardImages];
-      const num = Math.min(numCards - ret.length, cards.length);
-      for (let i = 0; i < num; i++) {
-        ret.push(images[cards.pop()!]);
-        setCards(() => cards);
+      let ret: ImageIF[] = [];
+      let randomCard = _.sample(unclickedCards);
+      let curCards = cards.filter((card) => card !== randomCard);
+
+      ret.push(images[randomCard!]);
+      _.shuffle(curCards);
+      for (let i = 0; i < EXTRA_CARDS; i++) {
+        ret.push(images[curCards[i]]);
       }
       return _.shuffle(ret);
     });
   };
 
   const gameReset = () => {
-    localStorage.setItem("highScore", JSON.stringify(score > highScore ? score : highScore));
+    sessionStorage.setItem("highScore", JSON.stringify(score > highScore ? score : highScore));
     setHighScore(() => (score > highScore ? score : highScore));
     setScore(() => 0);
     setClickedCards(() => []);
-    setCards(() => _.shuffle(Array.from(Array(size).keys())));
-    setMultipler(() => 1);
+    setUnclickedCards(() => cards);
     setCardImages(() => []);
-    setNumCards(() => 4);
     setWin(() => false);
   };
 
   const success = (key: number) => {
     setScore(() => score + 1);
     setClickedCards(() => [...clickedCards, key]);
-    setCardImages(() => _.shuffle(cardImages));
-    if (score + 1 === numCards) {
-      setNumCards(() => numCards + multipler * 4);
-      setMultipler(() => multipler + 1);
+    setUnclickedCards(() => unclickedCards.filter((card) => card !== key));
+
+    if (score + 1 === size) {
+      sessionStorage.setItem("highScore", JSON.stringify(score > highScore ? score : highScore));
+      setWin(() => true);
     }
-    if (score + 1 === size) setWin(() => true);
   };
 
   const imageClick = (key: number) => {
