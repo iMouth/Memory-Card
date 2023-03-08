@@ -11,9 +11,13 @@ interface Props {
   size: number;
 }
 
+const getHighScore = () => {
+  return localStorage.getItem("highScore") ? JSON.parse(localStorage.getItem("highScore")!) : 0;
+};
+
 const App = ({ images, size }: Props) => {
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
+  const [highScore, setHighScore] = useState(getHighScore());
   const [cardImages, setCardImages] = useState<ImageIF[]>([]);
   const [numCards, setNumCards] = useState(4);
   const [multipler, setMultipler] = useState(1);
@@ -38,6 +42,7 @@ const App = ({ images, size }: Props) => {
   };
 
   const gameReset = () => {
+    localStorage.setItem("highScore", JSON.stringify(score > highScore ? score : highScore));
     setHighScore(() => (score > highScore ? score : highScore));
     setScore(() => 0);
     setClickedCards(() => []);
