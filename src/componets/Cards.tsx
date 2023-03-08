@@ -1,10 +1,16 @@
 import React from "react";
 import "../styles/Cards.css";
+import { ImageIF } from "../../types";
 
-const Cards = ({ click, images }) => {
+interface Props {
+  click: (id: number) => void;
+  images: ImageIF[];
+}
+
+const Cards = ({ click, images }: Props) => {
   const cards = images.map(({ id, name, src }) => {
     return (
-      <button onClick={(e) => click(e, id)} className="card" key={id}>
+      <button onClick={(e) => click(id)} className="card" key={id}>
         <div className="img">
           <img src={src} alt={"Picture of: " + name} />
         </div>

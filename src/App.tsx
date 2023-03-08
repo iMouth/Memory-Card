@@ -4,15 +4,21 @@ import Header from "./componets/Header";
 import _ from "lodash";
 import Cards from "./componets/Cards";
 import Win from "./componets/Win";
+import { ImageIF } from "./../types";
 
-const App = ({ images, size }) => {
+interface Props {
+  images: ImageIF[];
+  size: number;
+}
+
+const App = ({ images, size }: Props) => {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
-  const [cardImages, setCardImages] = useState([]);
+  const [cardImages, setCardImages] = useState<ImageIF[]>([]);
   const [numCards, setNumCards] = useState(4);
   const [multipler, setMultipler] = useState(1);
   const [cards, setCards] = useState(_.shuffle(Array.from(Array(size).keys())));
-  const [clickedCards, setClickedCards] = useState([]);
+  const [clickedCards, setClickedCards] = useState<number[]>([]);
   const [win, setWin] = useState(false);
 
   useEffect(() => {
@@ -24,7 +30,7 @@ const App = ({ images, size }) => {
       let ret = [...cardImages];
       const num = Math.min(numCards - ret.length, cards.length);
       for (let i = 0; i < num; i++) {
-        ret.push(images[cards.pop()]);
+        ret.push(images[cards.pop()!]);
         setCards(() => cards);
       }
       return _.shuffle(ret);
@@ -42,7 +48,7 @@ const App = ({ images, size }) => {
     setWin(() => false);
   };
 
-  const success = (key) => {
+  const success = (key: number) => {
     setScore(() => score + 1);
     setClickedCards(() => [...clickedCards, key]);
     setCardImages(() => _.shuffle(cardImages));
@@ -53,7 +59,7 @@ const App = ({ images, size }) => {
     if (score + 1 === size) setWin(() => true);
   };
 
-  const imageClick = (e, key) => {
+  const imageClick = (key: number) => {
     if (clickedCards.includes(key)) gameReset();
     else success(key);
   };
@@ -61,7 +67,7 @@ const App = ({ images, size }) => {
   return (
     <div id="App">
       <Header score={score} highScore={highScore} />
-      {win ? <Win reset={gameReset} size={size} images={images} /> : <Cards click={imageClick} images={cardImages} />}
+      {win ? <Win reset={gameReset} size={size} /> : <Cards click={imageClick} images={cardImages} />}
     </div>
   );
 };

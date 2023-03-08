@@ -1,7 +1,12 @@
 import React from "react";
 import "../styles/Win.css";
 
-const Win = ({ size, reset }) => {
+interface Props {
+  size: number;
+  reset: () => void;
+}
+
+const Win = ({ size, reset }: Props) => {
   return (
     <div id="Win">
       <div>

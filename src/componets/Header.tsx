@@ -1,7 +1,12 @@
 import React from "react";
 import "../styles/Header.css";
 
-const Header = ({ score, highScore }) => {
+interface Props {
+  score: number;
+  highScore: number;
+}
+
+const Header = ({ score, highScore }: Props) => {
   return (
     <div id="Header">
       <h1>Survivor Winners Memory Game </h1>
